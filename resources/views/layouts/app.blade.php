@@ -33,7 +33,7 @@
                                             </li>
                                             <li class="account-el">
                                                 <i class="bx bxs-user-account"></i>
-                                                <a href="#">My Account</a>
+                                                <a href="/profile">My Account</a>
                                             </li>
                                             <li class="account-el">
                                                 <i class="bx bx-extension"></i>
@@ -119,7 +119,7 @@
                                             </li>
                                             <li class="account-el">
                                                 <i class="bx bxs-user-account"></i>
-                                                <a href="#">My Account</a>
+                                                <a href="/profile">My Account</a>
                                             </li>
                                             <li class="account-el">
                                                 <i class="bx bx-extension"></i>
