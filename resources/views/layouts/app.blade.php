@@ -113,22 +113,29 @@
                                     <i class="flaticon-user"></i>
                                     <div class="account-dropdown">
                                         <ul>
-                                            <li class="account-el">
-                                                <i class="bx bx-user-pin"></i>
-                                                <a href="#">Sign in</a>
-                                            </li>
-                                            <li class="account-el">
-                                                <i class="bx bxs-user-account"></i>
-                                                <a href="/profile">My Account</a>
-                                            </li>
-                                            <li class="account-el">
-                                                <i class="bx bx-extension"></i>
-                                                <a href="#">Settings</a>
-                                            </li>
-                                            <li class="account-el">
-                                                <i class="bx bx-log-in-circle"></i>
-                                                <a href="#">Log out</a>
-                                            </li>
+                                            @auth
+                                                <li class='account-el'>
+                                                    <i class='bx bxs-user-account'></i>
+                                                    <a href='/profile'>My Account</a>
+                                                </li>
+                                                <li class='account-el'>
+                                                    <i class='bx bx-log-in-circle'></i>
+                                                    <form method='POST' action='{{ route('logout') }}'
+                                                        style="margin-block-end: 0px">
+                                                        @csrf
+                                                        <button type='submit' class="asdf">Logout</button>
+                                                    </form>
+                                                </li>
+                                            @else
+                                                <li class='account-el'>
+                                                    <i class='bx bx-user-pin'></i>
+                                                    <a href='/login'>Login</a>
+                                                </li>
+                                                <li class='account-el'>
+                                                    <i class='bx bx-user-pin'></i>
+                                                    <a href='/register'>Register</a>
+                                                </li>
+                                            @endauth
                                         </ul>
                                     </div>
                                 </div>
@@ -163,7 +170,6 @@
 
     @yield('content')
 
-
     <div class="footer-area">
         <div class="container">
             <div class="row">
@@ -172,15 +178,21 @@
                         <div class="footer-logo">
                             <img src="{{ asset('images/logo-2.png') }}" alt="" class="img-fluid">
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid maxime aut ut voluptate
+                        <p>Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Aliquid maxime aut ut
+                            voluptate
                             dolorum nisi ducimus ratione</p>
                         <div class="footer-social-icons">
                             <h5>Follow Us:</h5>
                             <ul>
-                                <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
-                                <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
-                                <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
-                                <li><a href="#"><i class="bx bxl-dribbble"></i></a></li>
+                                <li><a href="#"><i class="bx bxl-facebook"></i></a>
+                                </li>
+                                <li><a href="#"><i class="bx bxl-instagram"></i></a>
+                                </li>
+                                <li><a href="#"><i class="bx bxl-twitter"></i></a>
+                                </li>
+                                <li><a href="#"><i class="bx bxl-dribbble"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -207,7 +219,8 @@
                                 <div class="contact-box">
                                     <span><i class="bx bx-location-plus"></i></span>
                                     <div>
-                                        <a href="#">2752 Willison Street <br>
+                                        <a href="#">2752 Willison Street
+                                            <br>
                                             Eagan, United State</a>
                                     </div>
                                 </div>
@@ -218,11 +231,15 @@
                                 <h5 class="widget-title">support</h5>
                                 <div class="category-list">
                                     <ul>
-                                        <li><a href="contact.html">Contact us</a></li>
-                                        <li><a href="about.html">About us</a></li>
+                                        <li><a href="contact.html">Contact
+                                                us</a></li>
+                                        <li><a href="about.html">About
+                                                us</a></li>
                                         <li><a href="#">Services</a></li>
-                                        <li><a href="blog.html">our Blogs</a></li>
-                                        <li><a href="#">terms and conditions</a></li>
+                                        <li><a href="blog.html">our
+                                                Blogs</a></li>
+                                        <li><a href="#">terms and
+                                                conditions</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -250,7 +267,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyrigth-area">
-                        <p>Copyright 2021 <a href="#">TourX</a> | Design By <a href="#">Egens Lab</a></p>
+                        <p>Copyright 2021 <a href="#">TourX</a> | Design By
+                            <a href="#">Egens Lab</a>
+                        </p>
                     </div>
                 </div>
             </div>

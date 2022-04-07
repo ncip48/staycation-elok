@@ -38,12 +38,19 @@
                     <div class="tab-pane active in" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="profile-details">
                             <div class="head-profile">
-                                <h3>My Profile</h3>
+                                <h3>Profil Saya</h3>
                             </div>
                             <div class="content-profile">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-5">
-                                        <img src="http://www.shmai.com/preview/travelco/assets/images/profile.jpg">
+                                        @php
+                                            if (is_null($user->picture)) {
+                                                $foto = 'https://pngset.com/images/profile-pic-profil-ronde-hair-face-word-logo-transparent-png-70466.png';
+                                            } else {
+                                                $foto = $user->picture;
+                                            }
+                                        @endphp
+                                        <img src={{ $foto }} style="height: 250px;widht:250px">
                                     </div>
                                     <div class="col-lg-9 col-md-7">
                                         <div class="info">
@@ -54,7 +61,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    Moniza
+                                                    {{ $user->name }}
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +73,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    25 Jan 1985
+                                                    {{ $user->dob }}
                                                 </div>
                                             </div>
                                         </div>
@@ -78,7 +85,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    example@example.com
+                                                    {{ $user->email }}
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +97,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    +123-456-789
+                                                    {{ $user->phone }}
                                                 </div>
                                             </div>
                                         </div>
@@ -102,25 +109,13 @@
                                                     </p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    23 Blok, Lorum Ipsum, Canada
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <p class="title">
-                                                        Country
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-7">
-                                                    Canada
+                                                    {{ $user->address }}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 text-right">
-                                        <a href="#" class="button">Edit Profile</a>
+                                    <div class="col-md-12 text-right mt-4">
+                                        <a href="#" class="button p-3">Edit Profile</a>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +142,117 @@
                                         <div class="col-lg-8 col-md-12">
                                             <div class="booking-detail">
                                                 <h3>
-                                                    Restuarent Details
+                                                    Hotel Details
+                                                </h3>
+                                                <div class="detail-info">
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <i class="fa fa-calendar-check-o"></i>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <p>
+                                                                booking date:
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            28:12:2021 at 3:20 AM
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-info">
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <i class="fa fa-sticky-note"></i>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <p>
+                                                                booking details:
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            28:12:2021 at 3:20 AM
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-info">
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <i class="fa fa-user-secret"></i>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <p>
+                                                                client:
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $user->name }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-info">
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <i class="fa fa-envelope"></i>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <p>
+                                                                Email:
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $user->email }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-info">
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <i class="fa fa-phone"></i>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <p>
+                                                                Phone:
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                    {{ $user->phone }}
+                                                </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-12">
+                                            <div class="booking-action">
+                                                <a class="btn-message bookbtn" href="#">
+                                                    Mesage
+                                                </a>
+                                                <a class="btn-apreove bookbtn" href="#">
+                                                    Aprove
+                                                </a>
+                                                <a class="btn-cancle bookbtn" href="#">
+                                                    Cancle
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="booking-info">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-12">
+                                            <div class="booking-date">
+                                                <p class="date">
+                                                    15
+                                                </p>
+                                                <p class="month">
+                                                    august
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 col-md-12">
+                                            <div class="booking-detail">
+                                                <h3>
+                                                    Hotel Details
                                                 </h3>
                                                 <div class="detail-info">
                                                     <div class="row">
@@ -257,117 +362,7 @@
                                         <div class="col-lg-8 col-md-12">
                                             <div class="booking-detail">
                                                 <h3>
-                                                    Restuarent Details
-                                                </h3>
-                                                <div class="detail-info">
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <i class="fa fa-calendar-check-o"></i>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <p>
-                                                                booking date:
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            28:12:2021 at 3:20 AM
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="detail-info">
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <i class="fa fa-sticky-note"></i>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <p>
-                                                                booking details:
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            28:12:2021 at 3:20 AM
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="detail-info">
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <i class="fa fa-user-secret"></i>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <p>
-                                                                client:
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            Monica smith
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="detail-info">
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <i class="fa fa-envelope"></i>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <p>
-                                                                Email:
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            example@example.com
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="detail-info">
-                                                    <div class="row">
-                                                        <div class="col-md-1">
-                                                            <i class="fa fa-phone"></i>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <p>
-                                                                Phone:
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            +123-456-789
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-md-12">
-                                            <div class="booking-action">
-                                                <a class="btn-message bookbtn" href="#">
-                                                    Mesage
-                                                </a>
-                                                <a class="btn-apreove bookbtn" href="#">
-                                                    Aprove
-                                                </a>
-                                                <a class="btn-cancle bookbtn" href="#">
-                                                    Cancle
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="booking-info">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-md-12">
-                                            <div class="booking-date">
-                                                <p class="date">
-                                                    15
-                                                </p>
-                                                <p class="month">
-                                                    august
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8 col-md-12">
-                                            <div class="booking-detail">
-                                                <h3>
-                                                    Restuarent Details
+                                                    Hotel Details
                                                 </h3>
                                                 <div class="detail-info">
                                                     <div class="row">
