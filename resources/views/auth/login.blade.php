@@ -86,8 +86,7 @@
                                 <!-- / END CONTACT FORM DESIGN AREA </div> -->
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>                </div>
             </section>
         </div>
     </div>
